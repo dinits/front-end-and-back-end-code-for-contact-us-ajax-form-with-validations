@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1,minimum-scale=1.0,maximum-scale=1.0">
+
+    <title>CONTACT US FORM</title>
+
+    <style>
+        /*
+        CSS STYLES
+        */
+        
+        body {
+            margin: 0;
+            background: white;
+            color: black;
+        }
+        
+        .fullScreen80Flex {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 80vh;
+        }
+        
+        article.contactForm div.formContainer {
+            color: black;
+            margin: 2em auto 2em auto;
+            padding: 1em 0 1em 0;
+            overflow: hidden;
+            width: 400px;
+            background-image: linear-gradient(-225deg, #AC32E4 0%, #7918F2 48%, #4801FF 100%);
+            border-radius: 10px;
+        }
+        
+        article.contactForm div.formContainer div.heading {
+            margin: 0 auto 0 auto;
+            width: 100%;
+            letter-spacing: 0.1em;
+            font-weight: bold;
+            text-align: center;
+            color: black;
+        }
+        
+        article.contactForm div.formContainer div.heading h1 {
+            font-size: 1.5em;
+            letter-spacing: 0.2em;
+            color: white;
+            font-weight: bolder;
+        }
+        
+        article.contactForm div.formContainer div.description {
+            width: 80%;
+            margin: 0 auto 0 auto;
+            text-align: center;
+        }
+        
+        article.contactForm div.formContainer div.description p {
+            margin: 0.1em;
+            font-size: 0.8em;
+        }
+        
+        article.contactForm div.formContainer div.description p a {
+            color: black;
+            text-decoration: none;
+        }
+        
+        article.contactForm div.formContainer div.description p a:hover span:after {
+            border-bottom: 2px solid black;
+        }
+        
+        article.contactForm div.formContainer div.form {
+            margin: 0 auto 0 auto;
+            width: 100%;
+        }
+        
+        article.contactForm div.formContainer div.form form {
+            margin: 0 auto 0 auto;
+            width: 98%;
+        }
+        
+        article.contactForm div.formContainer div.form label {
+            display: block;
+            width: 80%;
+            margin: 0.5em auto 0.5em auto;
+            outline: none;
+            color: white;
+            letter-spacing: 0.1em;
+            font-weight: bolder;
+            font-size: 1.2em;
+        }
+        
+        article.contactForm div.formContainer div.form input {
+            display: block;
+            width: 80%;
+            margin: 1em auto 1em auto;
+            outline: none;
+            color: black;
+            padding: 0.8em 0 0.8em 0.6em;
+            border: none;
+            border-radius: 5px;
+            transition: all 0.2s linear;
+            font-weight: bolder;
+        }
+        
+        div.form textarea {
+            display: block;
+            width: 80%;
+            margin: 1em auto 1em auto;
+            outline: none;
+            color: black;
+            padding: 0.8em 0 0.8em 0.6em;
+            border: none;
+            resize: vertical;
+            height: 5em;
+            border-radius: 5px;
+            transition: all 0.2s linear;
+            font-weight: bolder;
+        }
+        
+        article.contactForm div.formContainer div.form input:hover,
+        article.contactForm div.formContainer div.form input:active,
+        div.form textarea:hover,
+        div.form textarea:active {
+            transition: all 0.2s linear;
+            box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+        }
+        
+        div.form button {
+            outline: none;
+            border: none;
+            margin: 2em auto 2em auto;
+            padding: 1.4em;
+            cursor: pointer;
+            letter-spacing: 0.4em;
+            display: block;
+            width: 60%;
+            text-align: center;
+            box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+            color: white;
+            background-color: navy;
+            border-radius: 5px;
+            transition: all linear 0.2s;
+        }
+        
+        div.form button:hover,
+        div.form button:active {
+            background-color: rgba(0, 0, 128, 0.678);
+            transition: all linear 0.2s;
+        }
+        
+        article.contactForm div.formContainer p.errors {
+            margin: 0 auto 0 auto;
+            width: 80%;
+            padding: 0;
+            color: white;
+            transition: all 0.2s linear;
+        }
+        
+        article.contactForm div.formContainer div#status {
+            margin: 0 auto 0 auto;
+            width: 80%;
+        }
+        
+        div#status.active {
+            display: block;
+            width: 80%;
+            margin: 1em auto 1em auto;
+            padding: 0.2em 0 0.2em 0.2em;
+            background: orange;
+            text-align: left;
+            animation-name: status;
+            animation-duration: 0.3s;
+            transition: all 0.2s linear;
+            border-radius: 5px;
+        }
+        
+        @keyframes status {
+            from {
+                transform: scale(0);
+            }
+            to {
+                transform: scale(1);
+            }
+        }
+        
+        article.contactForm div.formContainer div#status p {
+            animation-name: text-inc;
+            transition: all 0.5s linear;
+            animation-duration: 1s;
+            animation-iteration-count: infinite;
+            color: black;
+            font-style: italic;
+            text-align: center;
+        }
+        
+        @keyframes text-inc {
+            from {
+                color: white;
+            }
+            to {
+                color: black;
+            }
+        }
+        
+        @media (max-width:1020px) {
+            article.contactForm div.formContainer {
+                width: 98%;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!--
+        CONTACT US FORM HTML
+        SOURCE : // https://www.thewebblinders.in/programming/article/responsive-html-contact-us-form-php-mysql-with-validations-6046
+    -->
+    <article class="fullScreen80Flex contactForm ">
+        <div class="formContainer">
+            <div class="heading ">
+                <h1>CONTACT US</h1>
+            </div>
+
+            <div id="contact-us" class="form ">
+                <form id="contactForm">
+                    <label for="name">Name</label>
+                    <p data-error="name" class="errors"></p>
+                    <input type="text" id="name">
+                    <label for="email">Email</label>
+                    <p data-error="email" class="errors"></p>
+                    <input type="email" id="email">
+                    <label for="message">Message</label>
+                    <p data-error="message" class="errors"></p>
+                    <textarea id="message"></textarea>
+                    <div id="status">
+                    </div>
+                    <button type="submit ">SEND</button>
+                </form>
+
+            </div>
+            <a style="display:hidden !important;" href="https://www.thewebblinders.in/programming/article/responsive-html-contact-us-form-php-mysql-with-validations-6046">SOURCE</a>
+        </div>
+    </article>
+    <script>
+        // JavaScript 
+        class ContactUs {
+            constructor() {
+
+                this.formEle = document.getElementById("contactForm");
+                this.statusEle = document.getElementById("status");
+
+                this.nameEle = document.getElementById("name");
+                this.emailEle = document.getElementById("email");
+                this.messageEle = document.getElementById("message");
+            }
+
+
+
+            init() {
+
+                this.formEle.onsubmit = (e) => {
+                    e.preventDefault();
+                    this.clearErrors();
+                    this.validate();
+                }
+
+            }
+
+            validate() {
+                var hasErrors = false;
+
+                if (this.isEmpty(this.nameEle, true) || this.isInvalidLength(this.nameEle.value, [3, 60])) {
+
+                    this.displayError('name', "* Name must be between 3 to 60 characters");
+                    hasErrors = true;
+                }
+
+
+                if (this.isEmpty(this.emailEle, true) || !this.isValidEmail(this.emailEle.value)) {
+                    this.displayError('email', "* Enter valid email");
+                    hasErrors = true;
+                }
+
+                if (this.isEmpty(this.messageEle, true) || this.isInvalidLength(this.messageEle.value, [3, 1024])) {
+
+                    this.displayError('message', "* Message must be between 3 to 1024 characters");
+                    hasErrors = true;
+                }
+
+                if (hasErrors) {
+                    return;
+                }
+
+                /*
+                console.log({
+                    email: this.emailEle.value,
+                    mobile: this.mobileEle.value,
+                    address: this.addressEle.value,
+                    name: this.nameEle.value
+                });
+                */
+                this.statusEle.classList.add("active");
+                this.statusEle.innerHTML = `<p>Please Wait....</p>`;
+
+
+                this.ajaxData(JSON.stringify({
+                    email: this.emailEle.value,
+                    message: this.messageEle.value,
+                    name: this.nameEle.value
+                }));
+
+
+
+            }
+
+            displayError(dataError, message) {
+                try {
+                    document.querySelector(`p[data-error=${dataError}]`).innerHTML = message;
+
+                } catch (e) {
+                    console.log(e);
+                }
+            }
+
+            clearErrors() {
+                this.statusEle.classList.remove("active");
+                this.statusEle.innerHTML = "";
+                document.querySelectorAll(`p.errors`).forEach((ele) => {
+                    ele.innerHTML = "";
+                });
+            }
+
+
+
+            ajaxData(jsonData) {
+                const url = './process-contact-us.php';
+                let xhttp = new XMLHttpRequest();
+                let that = this;
+                xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+
+                        try {
+                            let data = JSON.parse(this.responseText);
+                            if (data['status'].toString().toLowerCase() == 'true') {
+                                that.formEle.reset();
+                                that.statusEle.classList.add("active");
+                                that.statusEle.innerHTML = `<p>Thank you , we will get back to you</p>`;
+                                setTimeout(() => {
+                                    that.statusEle.classList.remove("active");
+                                    that.statusEle.innerHTML = "";
+                                }, 3000);
+                            } else {
+                                that.statusEle.innerHTML = `<p>Server error or Invalid data supplied</p>`;
+                            }
+                        } catch (err) {
+                            console.log(err);
+                            that.statusEle.innerHTML = `<p>Something went wrong, try again</p>`;
+
+                        }
+                    }
+                };
+                xhttp.open("POST", url, true);
+                xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                xhttp.send(`data=${jsonData}`);
+            }
+
+
+            isEmpty(ele, isElement = true) {
+                try {
+                    console.log(ele);
+                    if (isElement) {
+                        if (ele.value == "" || ele.value == null || ele.value.replace(/ /g, "").length == 0) {
+                            return true;
+                        }
+                        ele.value = this.htmlspecialchars(ele.value.trim());
+                        return false;
+                    } else {
+                        if (ele == "" || ele == null || ele.replace(/ /g, "").length == 0) {
+                            return true;
+                        }
+                        return false;
+                    }
+
+                } catch (err) {
+                    console.log(err);
+                    return true;
+                }
+            }
+            isInvalidLength(input, rangeArray) {
+                try {
+                    let len = input.toString().length;
+                    return (len < rangeArray[0] || len > rangeArray[1]);
+                } catch (e) {
+                    console.log(e);
+                    return true;
+                }
+            }
+            isValidEmail(email) {
+                let re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                return re.test(email);
+            }
+            htmlspecialchars(string) {
+                var specialchars = [
+                    ['&', '&amp;'],
+                    ['<', '&lt;'],
+                    ['>', '&gt;'],
+                    ['"', '&quot;']
+                ];
+                var escapedString = string;
+                var len = specialchars.length;
+                for (var x = 0; x < len; x++) {
+                    escapedString = escapedString.replace(
+                        new RegExp(specialchars[x][0], 'g'),
+                        specialchars[x][1]
+                    );
+                }
+                // Return the escaped string.
+                return escapedString;
+            }
+
+        }
+
+        var contactUs = new ContactUs();
+        contactUs.init();
+    </script>
+</body>
+
+</html>
